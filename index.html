@@ -7,14 +7,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>website by bilal</title>
+  <title>offlcial Website by bil</title>
   <style>
     body{
-      background: linear-gradient(135deg, black, #6B7280, black);
+      background: linear-gradient(135deg, blue, brown, blue);
       height: 33%;
   text-align: center;
-  border: 10px yellow solid ;
-  border-radius: 30px;
+  border: 5px yellow solid ;
+  border-radius: 2px;
   transform: black;
   border: margin: 20px;
   overflow-x: hidden;
@@ -108,23 +108,177 @@ div{
 ad-box{
   margin: 0;
 }
+h1:hover{
+background:#1e293b;
+transform:scale(1.02);
+}
+.8{
+padding:14px 28px;
+font-size:18px;
+border:2px solid #38bdf8;
+background:transparent;
+color:#38bdf8;
+border-radius:12px;
+cursor:pointer;
+transition:0.3s;
+}
+h3{
+  color: red;
+}
+input{
+  border: solid ;
+}
+vide{width:50%;
+  height:50%;
+  object-fit:cover; }
+  #h{
+    color: red;
+  }
+  .popup{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:0.3s;
+  z-index:9999;
+}
+
+.popup.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.popup-box{
+  background:#111827;
+  padding:20px;
+  border-radius:15px;
+  width:90%;
+  max-width:300px;
+  text-align:center;
+  border:2px solid #3b82f6;
+  animation:scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn{
+  from{transform:scale(0.7);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+.close-btn{
+  margin-top:15px;
+  padding:10px 20px;
+  border:2px solid #3b82f6;
+  background:transparent;
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.close-btn:active{
+  transform:scale(0.9);
+  background:#3b82f6;
+}
   </style>
-   <script>
-     const a = 404
-     console.log(a);
-     const b = 404
-     console.log(b)
-     const c = "welcome To My Website"
-     console.log(c);
-     const d = 404
-     console.log(d);
-     const e = "java-script"
-     console.log(e);
-     const f = "new"
-     console.log(f);
-     const u = red
-     console.log(u);
-   </script>
+     <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBDnQwKR2q9NsDQsZ3HIwJJIHtRPhxGiU4",
+    authDomain: "my-joson.firebaseapp.com",
+    databaseURL: "https://my-joson-default-rtdb.firebaseio.com",
+    projectId: "my-joson",
+    storageBucket: "my-joson.firebasestorage.app",
+    messagingSenderId: "920774352999",
+    appId: "1:920774352999:web:5aae42702a3d10e7da74c2"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  
+  
+ // Create popup dynamically
+const popup = document.createElement("div");
+popup.innerText = "This feature is not implemented";
+popup.style.position = "fixed";
+popup.style.top = "50%";
+popup.style.left = "50%";
+popup.style.transform = "translate(-50%, -50%) scale(0.5)";
+popup.style.background = "#111";
+popup.style.color = "#ff3b3b";
+popup.style.padding = "20px";
+popup.style.border = "2px solid #ff3b3b";
+popup.style.borderRadius = "12px";
+popup.style.fontSize = "16px";
+popup.style.textAlign = "center";
+popup.style.opacity = "0";
+popup.style.transition = "0.3s ease";
+popup.style.zIndex = "9999";
+document.body.appendChild(popup);
+
+// Show function
+function showPopup() {
+    popup.style.opacity = "1";
+    popup.style.transform = "translate(-50%, -50%) scale(1)";
+
+    setTimeout(() => {
+        popup.style.opacity = "0";
+        popup.style.transform = "translate(-50%, -50%) scale(0.5)";
+    }, 2000);
+}
+
+// Catch ALL submit buttons
+document.addEventListener("click", function (e) {
+    if (e.target && e.target.type === "submit") {
+        e.preventDefault();
+        showPopup();
+    }
+});
+
+// Also catch form submit event
+document.addEventListener("submit", function (e) {
+    e.preventDefault();
+    showPopup();
+});
+let popup = document.getElementById("popup");
+let timerText = document.getElementById("timer");
+
+function showPopup(){
+  popup.classList.add("active");
+
+  let time = 5;
+  timerText.innerText = time;
+
+  let countdown = setInterval(()=>{
+    time--;
+    timerText.innerText = time;
+
+    if(time <= 0){
+      clearInterval(countdown);
+      closePopup();
+    }
+  },1000);
+}
+
+function closePopup(){
+  popup.classList.remove("active");
+}
+
+/* Har 1 second popup */
+setInterval(()=>{
+  showPopup();
+},1000);
+  </script>
    <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Playwrite+DE+SAS:wght@100..400&family=Playwrite+NZ+Guides&display=swap" rel="stylesheet">
@@ -177,8 +331,43 @@ allowfullscreen>
     <h4>contact Email <br> <u>businessp255@gmail.com</u></h4>
     <h4>subscribe This Channel <br> <u>https://www.youtube.com/@technogamer-t9f</u></h4>
     <hr>
-    <h3>The website upcoming in 6 may</h3>
+    <h3>website successfully launch</h3>
     <hr>
+<script>
+function shareNow(){
+let message = "🔥 Check this awesome website!";
+let link = "https://bilalbuledi775-lab.github.io/updated-website-/"
+
+let url = "https://wa.me/?text=" + encodeURIComponent(message + " " + link);
+
+window.open(url, "_blank");
+}
+</script>
+<hr>
+ <script>
+function submitForm(){
+  const fileInput = document.getElementById("l");
+
+  if(fileInput.files.length === 0){
+    alert("Please select a file first!");
+    return;
+  }
+
+  // Random websites list
+  const sites = [
+    "https://www.google.com",
+    "https://www.youtube.com",
+    "https://www.wikipedia.org",
+    "https://www.github.com",
+    "https://www.instagram.com"
+  ];
+
+  const randomSite = sites[Math.floor(Math.random() * sites.length)];
+
+  // Redirect
+  window.location.href = randomSite;
+}
+</script>
 </body>
 </html>
   <script>
@@ -199,4 +388,51 @@ allowfullscreen>
     'width' : 300,
     'params' : {}
   };
+  
+  
+  function submitForm(){
+  const fileInput = document.getElementById("l");
+
+  if(fileInput.files.length === 0){
+    alert("Please select a file first!");
+    return;
+  }
+
+  // Random websites list
+  const sites = [
+    "https://www.google.com",
+    "https://www.youtube.com",
+    "https://www.wikipedia.org",
+    "https://www.github.com",
+    "https://www.instagram.com"
+  ];
+
+  const randomSite = sites[Math.floor(Math.random() * sites.length)];
+
+  // Redirect
+  window.location.href = randomSite;
+}
 </script>
+<hr>
+<h3>feedback</h3>
+<hr>
+<input type="text" placeholder="Enter your Email">
+<hr>
+<input type="file">
+<input class="y" type="submit">
+<script>
+  atOptions = {
+    'key' : '13493ee6b387d27ed07938c0eda792d7',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+  <div class="popup" id="popup">
+  <div class="popup-box">
+    <h2>Ad Popup</h2>
+    <p>Yeh ek demo ad hai</p>
+    <p id="timer">5</p>
+    <button class="close-btn" onclick="closePopup()">Close</button>
+  </div>
+</div>
